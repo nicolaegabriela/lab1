@@ -12,8 +12,12 @@
 @implementation Ex1
 -(NSArray *)cappitalizeWordsFromArray:(NSArray *)words
 {
-    //ex1
-    return nil;
+    NSMutableArray *result=[[NSMutableArray alloc] init];
+    for(NSString *id in words){
+        NSString *TEMP= [id capitalizedString];
+        [result addObject:TEMP];
+    }
+    return result;
 }
 
 -(NSString *)linkAllWordsFromArray:(NSArray *)words usingSeparator:(NSString *)separator
