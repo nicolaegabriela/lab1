@@ -13,40 +13,53 @@
 -(NSArray *)cappitalizeWordsFromArray:(NSArray *)words
 {
     NSMutableArray *result=[[NSMutableArray alloc] init];
-    for(NSString *id in words){
-        NSString *TEMP= [id capitalizedString];
-        [result addObject:TEMP];
+    for(NSString *aux in words){
+        NSString *temp= [aux capitalizedString];
+        [result addObject:temp];
     }
     return result;
 }
 
 -(NSString *)linkAllWordsFromArray:(NSArray *)words usingSeparator:(NSString *)separator
 {
-    //ex1
-    return nil;
+    NSString *result=[[NSString alloc] init];
+    result=[words componentsJoinedByString:separator];
+    return result;
 }
 
 -(NSString *)linkAndCapitalizeAllWordsFromArray:(NSArray *)words usingSeparator:(NSString *)separator
 {
-    //ex1
-    return nil;
+    NSString *result=[[NSString alloc] init];
+    NSArray *temp=[[NSArray alloc] init];
+    temp=[self cappitalizeWordsFromArray:words];
+    result=[self linkAllWordsFromArray:temp usingSeparator: separator];
+    return result;
 }
 
 -(NSString *)extractSubstringFromString:(NSString *)string starting:(NSUInteger)startIndex ending:(NSUInteger)endIndex
 {
-    //ex1
-    return nil;
+
+    return [string substringWithRange:NSMakeRange(startIndex, endIndex)];
 }
 
 -(BOOL)checkPalindrome:(NSString *)string
 {
-    //ex1
-    return NO;
+    if (!string || string.length == 0) return NO;
+    if(string.length == 1) return YES;
+    for( unsigned i =0 ;i< string.length-1;i++)
+        if ([string characterAtIndex:i]!=[string characterAtIndex:string.length-i-1]) return NO;
+    return YES;
 }
 
 -(BOOL)checkPalindromeFromCharPosition:(NSUInteger)index ofAllWordsFromArray:(NSArray *)array
 {
-    //ex1
-    return NO;
+     NSMutableString *temp=[[NSMutableString alloc] init];
+    
+    for(NSString * aux in array){
+        if (index>aux.length) return NO;
+        NSString *c=[aux substringWithRange:NSMakeRange(index-1,1)];
+            [temp appendString:c];
+    }
+    return [self checkPalindrome:temp];
 }
 @end

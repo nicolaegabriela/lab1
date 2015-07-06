@@ -16,13 +16,16 @@ int main(int argc, const char * argv[]) {
         Ex1 *ex1 = [[Ex1 alloc] init];
         NSArray *array = @[@"test",@"one",@"ten"];
         [ex1 cappitalizeWordsFromArray:array];
-//        [ex1 linkAllWordsFromArray:array usingSeparator:@"~"];
-//        [ex1 linkAndCapitalizeAllWordsFromArray:array usingSeparator:@"~"];
-//        [ex1 checkPalindrome:@"madam"];
-//        [ex1 checkPalindrome:@"man"];
-//        [ex1 checkPalindromeFromCharPosition:1 ofAllWordsFromArray:array];
-//        [ex1 checkPalindromeFromCharPosition:2 ofAllWordsFromArray:array];
-//        [ex1 checkPalindromeFromCharPosition:3 ofAllWordsFromArray:array];
+        [ex1 linkAllWordsFromArray:array usingSeparator:@"~"];
+        
+        NSLog(@": %@",[ex1 linkAndCapitalizeAllWordsFromArray:array usingSeparator:@"~"]);
+        NSLog([ex1 checkPalindrome:@"madam"] ? @"YES":@"No");
+        NSLog([ex1 checkPalindrome:@"man"] ? @"YES":@"No");
+        
+        NSLog([ex1 checkPalindromeFromCharPosition:1 ofAllWordsFromArray:array] ? @"YES":@"No");
+        NSLog([ex1 checkPalindromeFromCharPosition:2 ofAllWordsFromArray:array] ? @"YES":@"No");
+        NSLog([ex1 checkPalindromeFromCharPosition:3 ofAllWordsFromArray:array] ? @"YES":@"No");
+        NSLog([ex1 checkPalindromeFromCharPosition:4 ofAllWordsFromArray:array] ? @"YES":@"No");
         
         Ex2 *ex2 = [[Ex2 alloc] init];
 //        [ex2 cumputeFibbonaci:10];
